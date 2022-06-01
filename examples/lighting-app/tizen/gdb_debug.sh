@@ -12,8 +12,7 @@ fi
 re='^[0-9]+$'
 lauch_out=$("$SDB" shell app_launcher -s org.tizen.matter.example.lighting vendor-id 65521 product-id 32769 discriminator 42 passcode 1234)
 APP_PID=$(echo "$lauch_out" | cut -d ' ' -f6)
-re='^[0-9]+$'
-if ! [[ "$APP_PID" =~ "$re" ]]; then
+if ! [[ "$APP_PID" =~ $re ]]; then
     echo "Wrong pid number" >&2
     echo "Launch command out:"
     echo "$lauch_out"
